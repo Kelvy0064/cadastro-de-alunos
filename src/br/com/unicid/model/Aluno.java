@@ -1,20 +1,23 @@
 package br.com.unicid.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Aluno {
 	private String nome;
 	private int rgm;
-	private Date dataNascimento;
+	private String dataNascimento;
 	private String cpf;
 	private String email;
 	private String endereco;
 	private String municipio;
 	private String uf;
 	private String celular;
+	private int idCurso;
+	private String periodo;
+	private String campus;
 	
-	public Aluno(String nome, int rgm, Date dataNascimento, String cpf, String email, String endereco, String municipio,
-			String uf, String celular) {
+	public Aluno(String nome, int rgm, String dataNascimento, String cpf, String email, String endereco, String municipio,
+			String uf, String celular, int idCurso, String periodo, String campus) {
 		this.nome = nome;
 		this.rgm = rgm;
 		this.dataNascimento = dataNascimento;
@@ -24,6 +27,9 @@ public class Aluno {
 		this.municipio = municipio;
 		this.uf = uf;
 		this.celular = celular;
+		this.idCurso = idCurso;
+		this.periodo = periodo;
+		this.campus = campus;
 	}
 
 	public String getNome() {
@@ -42,11 +48,11 @@ public class Aluno {
 		this.rgm = rgm;
 	}
 
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -96,6 +102,18 @@ public class Aluno {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+	
+	public int getIdCurso() {
+		return idCurso;
+	}
+	
+	public String getPeriodo() {
+		return periodo;
+	}
+	
+	public String getCampus() {
+		return campus;
 	}
 	
 	

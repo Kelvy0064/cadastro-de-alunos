@@ -1,0 +1,69 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f01c58b80ad, pid=45435, tid=45450
+#
+# JRE version: OpenJDK Runtime Environment (11.0.7+10) (build 11.0.7+10-post-Ubuntu-3ubuntu1)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.7+10-post-Ubuntu-3ubuntu1, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x30ad]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/kelvy/Documents/Projetos/cadastro-de-alunos/core.45435)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:44035 -javaagent:/home/kelvy/eclipse/jee-2019-09/eclipse/configuration/org.eclipse.osgi/406/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 br.com.unicid.controller.Principal
+
+Host: Intel(R) Core(TM) i3-6006U CPU @ 2.00GHz, 4 cores, 11G, Ubuntu 20.04 LTS
+Time: Sun May 10 09:33:57 2020 -03 elapsed time: 67 seconds (0d 0h 1m 7s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f01c01d4800):  JavaThread "Signal Dispatcher" daemon [_thread_in_vm, id=45450, stack(0x00007f018f18e000,0x00007f018f28f000)]
+
+Stack: [0x00007f018f18e000,0x00007f018f28f000],  sp=0x00007f018f28c1f0,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x30ad]
+C  [libjimage.so+0x3da2]
+C  [libjimage.so+0x42b1]  JIMAGE_FindResource+0xf1
+V  [libjvm.so+0x57f081]
+V  [libjvm.so+0x581831]
+V  [libjvm.so+0xceb11d]
+V  [libjvm.so+0xce9caa]
+V  [libjvm.so+0xcec26b]
+V  [libjvm.so+0x62ebfe]
+V  [libjvm.so+0x81b1d6]
+j  jdk.internal.misc.Signal.dispatch(I)V+25 java.base@11.0.7
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x823ba9]
+V  [libjvm.so+0x822bc2]
+V  [libjvm.so+0xb7d86e]
+V  [libjvm.so+0xd21d3f]
+V  [libjvm.so+0xd1e610]
+V  [libjvm.so+0xb8e5e6]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  jdk.internal.misc.Signal.dispatch(I)V+25 java.base@11.0.7
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00007f01b791b498
+
+Register to memory mapping:
+
+RAX=0x000000000000391f is an unknown value
+RBX=0x00007f018f28c2a1 is pointing into the stack for thread: 0x00007f01c01d4800
+RCX=0x00007f018f28c2c3 is pointing into the stack for thread: 0x00007f01c01d4800
+RDX=0x000000000000391f is an unknown value
+RSP=0x00007f018f28c1f0 is pointing into the stack for thread: 0x00007f01c01d4800
+RBP=0x00007f018f28c210 is pointing into the stack for thread: 0x00007f01c01d4800
+RSI=0x0 is NULL
+RDI=0x00007f01c58bd130: <offset 0x0000000000008130> in /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so at 0x00007f01c58b5000
+R8 =0x00007f01b790d01c is an unknown value
+R9 =0x00007f01c01d6060 points into unknown readable memory: 02 00 00 00 00 00 00 00
+R10=0x00007f01c6bfdd28: <offset 0x0000000000e45d28> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007f01c5db8000
+R11=0x00007f018f28d418 is pointing into the stack for thread: 0x00007f01c01d4800
+R12=

@@ -1,5 +1,7 @@
 package br.com.unicid.model;
 
+import java.sql.ResultSet;
+
 public class CursoDiciplina {
 	private int idCurso;
 	private int idDiciplina;

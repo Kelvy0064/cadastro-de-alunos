@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-import com.mysql.cj.protocol.Resultset;
-
+import br.com.unicid.model.Curso;
 import br.com.unicid.model.Diciplina;
 import br.com.unicid.util.ConnectionFactory;
 
@@ -23,28 +23,38 @@ public class DiciplinaDAO {
 		}
 	}
 
-	public void salvar(Diciplina diciplina) {
+	public Integer salvar(Diciplina diciplina) {
+		Integer id = null;
 		try {
 			String sql = "INSERT INTO diciplina(nome) VALUE(?)";
-			ps = conn.prepareStatement(sql);
+			ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, diciplina.getNome());
 			ps.executeUpdate();
+			rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 	
-	public int getIdDiciplina() {
-		int resultado = 0;
+	public Integer findCursoDiciplinaByName(String diciplina) {
+		Integer resposta = null;
+		String sql = "SELECT id FROM diciplina WHERE nome = "+"\"" +diciplina+"\"";
 		try {
-			String sql = "SELECT id FROM diciplina LIMIT 1";
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
-			resultado = rs.getInt("id");
-		} catch (Exception e) {
+			if(rs != null && rs.next()){
+                resposta = rs.getInt("id");
+            }
+			return resposta;
+		} catch (SQLException e) {
 			e.printStackTrace();
-			
+			return null;
 		}
-		return resultado;
+		
 	}
 }
